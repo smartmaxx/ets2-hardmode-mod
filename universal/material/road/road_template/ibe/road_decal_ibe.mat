@@ -1,0 +1,13 @@
+effect : "eut2.dif.spec.decal.over.rfx" {
+	substance : "road_dirt"
+	
+	specular : { 0.01, 0.01, 0.01}
+	shininess : 1
+	reflection: 1.0
+	
+	
+	texture : "texture_base" {
+		source : "road_decal_ibe.tobj"
+		sampler : default
+	}
+}

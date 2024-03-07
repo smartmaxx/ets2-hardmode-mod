@@ -1,0 +1,7 @@
+
+traffic_rule_data : traffic_rule.lights_on
+{
+	rule: "lights"
+	str_params[]: "front"
+}
+

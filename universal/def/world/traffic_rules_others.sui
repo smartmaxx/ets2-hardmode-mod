@@ -1,0 +1,326 @@
+
+traffic_rule_data : traffic_rule.give_way_m
+{
+	# name: "[sign] Give way (motorway lane merge)"
+
+	additional_rules[]: traffic_rule.minor_road
+}
+
+
+traffic_rule_data : traffic_rule.cross_line_s
+{
+	# Combined crossroad line and stop rule
+
+	#name: "[prefab] Crossroad line + stop rule"
+
+	additional_rules[]: traffic_rule.cross_line
+	additional_rules[]: traffic_rule.stop
+}
+
+traffic_rule_data : traffic_rule.no_priority
+{
+	# name: "Reset priority"
+
+	num_params[]: 0
+	num_params[]: 0
+	num_params[]: 0
+}
+
+traffic_rule_data : traffic_rule.cross_end
+{
+	# name: "[prefab] Crossroad end (reset speed limit and priority)"
+
+	additional_rules[]: traffic_rule.impl_reset
+	additional_rules[]: traffic_rule.no_priority
+}
+
+traffic_rule_data : traffic_rule.no_road
+{
+	name: "[obsolete] No road vehicles"
+	str_params[]: "Please remove"
+}
+
+traffic_rule_data : traffic_rule.no_trailer
+{
+	name: "[obsolete] No trailer area (areas with sharp curves)"
+
+	str_params[]: "Please remove or replace with more suitable rule"
+	additional_rules[]: traffic_rule.car_only
+}
+
+traffic_rule_data : traffic_rule.no_cars
+{
+	name: "[obsolete] No cars"
+
+	str_params[]: "Please remove and use corresponding access areas or exclusive access path rules."
+	additional_rules[]: traffic_rule.no_car_comp
+}
+
+traffic_rule_data : traffic_rule.no_buses
+{
+	name: "[obsolete] No bus area"
+
+	str_params[]: "Please remove and use corresponding access areas or exclusive access path rules."
+	additional_rules[]: traffic_rule.no_bus_comp
+}
+
+traffic_rule_data : traffic_rule.border_area
+{
+	name: "[obsolete] Border area"
+
+	str_params[]: "Please remove and use '[context] Border crossing area' just over the actual border crossing"
+
+	additional_rules[]: traffic_rule.s_car_h
+	additional_rules[]: traffic_rule.s_truck_h
+}
+
+traffic_rule_data : traffic_rule.s_no_train
+{
+	name: "[obsolete] Disable train spawn"
+
+	str_params[]: "Please remove"
+}
+
+traffic_rule_data : traffic_rule.city_xl_area
+{
+	name: "[context][urban] Large city - very high traffic density"
+
+	additional_rules[]: traffic_rule.urban_area
+	additional_rules[]: traffic_rule.s_car_uh
+	additional_rules[]: traffic_rule.s_trl_u
+	additional_rules[]: traffic_rule.s_trm_u
+	additional_rules[]: traffic_rule.s_trh_u
+	additional_rules[]: traffic_rule.s_truck_u
+	additional_rules[]: traffic_rule.s_police_u
+	additional_rules[]: traffic_rule.s_bus_h
+	additional_rules[]: traffic_rule.s_bus_c
+	additional_rules[]: traffic_rule.s_medical_u
+	additional_rules[]: traffic_rule.s_fire_u
+	additional_rules[]: traffic_rule.s_car_c_u
+	additional_rules[]: traffic_rule.s_truck_c_u
+}
+
+traffic_rule_data : traffic_rule.city_area
+{
+	name: "[context][urban] City - high traffic density"
+
+	additional_rules[]: traffic_rule.urban_area
+	additional_rules[]: traffic_rule.s_car_u
+	additional_rules[]: traffic_rule.s_trl_u
+	additional_rules[]: traffic_rule.s_trm_u
+	additional_rules[]: traffic_rule.s_trh_u
+	additional_rules[]: traffic_rule.s_truck_u
+	additional_rules[]: traffic_rule.s_police_u
+	additional_rules[]: traffic_rule.s_bus_l
+	additional_rules[]: traffic_rule.s_bus_c
+	additional_rules[]: traffic_rule.s_medical_u
+	additional_rules[]: traffic_rule.s_fire_u
+	additional_rules[]: traffic_rule.s_car_cs_u
+	additional_rules[]: traffic_rule.s_truck_cs_u
+}
+
+traffic_rule_data : traffic_rule.village_area
+{
+	name: "[context][urban] Village - low traffic density"
+
+	# No traffic density change
+
+	additional_rules[]: traffic_rule.urban_area
+	additional_rules[]: traffic_rule.s_cust_r
+}
+
+traffic_rule_data : traffic_rule.city_centre
+{
+	# name: "[obsolete] Urban-specific vehicles area"
+
+	str_params[]: "Please replace with [access] Custom vehicles area"
+
+	additional_rules[]: traffic_rule.allow_custom
+}
+
+traffic_rule_data : traffic_rule.allow_slow
+{
+	# name: "[obsolete] Rural-specific vehicles area"
+
+	str_params[]: "Please replace with [access] Custom vehicles area"
+
+	additional_rules[]: traffic_rule.allow_custom
+}
+
+traffic_rule_data : traffic_rule.truck_stop
+{
+	name: "[context] Truck stop area"
+
+	additional_rules[]: traffic_rule.rest_area
+}
+
+traffic_rule_data : traffic_rule.tollgate
+{
+	name: "[context] Tollgate area"
+
+	additional_rules[]: traffic_rule.excl_nav
+}
+
+traffic_rule_data : traffic_rule.border_cross
+{
+	name: "[context] Border crossing area"
+
+	additional_rules[]: traffic_rule.no_pl_limit
+	additional_rules[]: traffic_rule.limit_30
+	additional_rules[]: traffic_rule.excl_nav
+
+	additional_rules[]: traffic_rule.s_car_b
+	additional_rules[]: traffic_rule.s_truck_b
+	additional_rules[]: traffic_rule.s_bus_b
+}
+
+traffic_rule_data : traffic_rule.border_cr_s
+{
+	name: "[context] Border crossing area (inside Schengen)"
+
+	additional_rules[]: traffic_rule.no_pl_limit
+	additional_rules[]: traffic_rule.excl_nav
+
+	additional_rules[]: traffic_rule.s_car_b
+	additional_rules[]: traffic_rule.s_truck_b
+	additional_rules[]: traffic_rule.s_bus_b
+}
+
+traffic_rule_data : traffic_rule.weigh_event
+{
+	name: "[special] Weigh event area"
+
+	additional_rules[]: traffic_rule.s_truck_ws
+}
+
+traffic_rule_data : traffic_rule.w_truck_lane
+{
+	# allow access only for trucks eligible for weigh station visit
+	additional_rules[]: traffic_rule.trucks_only
+	additional_rules[]: traffic_rule.excl_nav
+}
+
+traffic_rule_data : traffic_rule.dealer
+{
+	name: "[context] Truck dealer area"
+
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.no_pl_limit
+	additional_rules[]: traffic_rule.limit_30
+}
+
+traffic_rule_data : traffic_rule.depot_area
+{
+	name: "[obsolete] Depot area"
+
+	str_params[]: "Please use rule '[context] Company area' instead over the *whole* company area - including entrance roads and the company prefab."
+	additional_rules[]: traffic_rule.company_area
+}
+
+traffic_rule_data : traffic_rule.city_start
+{
+	# name: "[sign] City start"
+	additional_rules[]: traffic_rule.urban_start
+	additional_rules[]: traffic_rule.limit_end
+}
+
+traffic_rule_data : traffic_rule.city_end
+{
+	# name: "[sign] City end"
+	additional_rules[]: traffic_rule.urban_end
+	additional_rules[]: traffic_rule.limit_end
+}
+
+traffic_rule_data : traffic_rule.city_end_70
+{
+	# name: "[sign] City end + limit 70"
+	additional_rules[]: traffic_rule.urban_end
+	additional_rules[]: traffic_rule.limit_70
+}
+
+traffic_rule_data : traffic_rule.city_end_90
+{
+	# name: "[sign] City end + limit 90"
+	additional_rules[]: traffic_rule.urban_end
+	additional_rules[]: traffic_rule.limit_90
+}
+
+traffic_rule_data : traffic_rule.major_road_s
+{
+	# name: "[sign] City start + priority road"
+
+	additional_rules[]: traffic_rule.city_start
+	additional_rules[]: traffic_rule.major_road
+}
+
+traffic_rule_data : traffic_rule.major_road_e
+{
+	# name: "[sign] City end + priority road"
+
+	additional_rules[]: traffic_rule.city_end
+	additional_rules[]: traffic_rule.major_road
+}
+
+traffic_rule_data : traffic_rule.lane_add_o
+{
+	# name: "[prefab] New outer lane added"
+
+	additional_rules[]: traffic_rule.impl_reset
+}
+
+traffic_rule_data : traffic_rule.lane_add_i
+{
+	# name: "[prefab] New inner lane added"
+
+	additional_rules[]: traffic_rule.impl_reset
+}
+
+traffic_rule_data : traffic_rule.no_ai_turn
+{
+	name: "[navigation] No AI turn"
+
+	additional_rules[]: traffic_rule.no_ai_left
+	additional_rules[]: traffic_rule.no_ai_right
+}
+
+traffic_rule_data : traffic_rule.low_pb_turn
+{
+	name: "[navigation] Low probability AI turn"
+
+	additional_rules[]: traffic_rule.low_pb_left
+	additional_rules[]: traffic_rule.low_pb_right
+}
+
+traffic_rule_data : traffic_rule.train_cross
+{
+	# name: [prefab] Train crossing
+	additional_rules[]: traffic_rule.rail_train
+}
+
+# Temporarily left for backward compatibility
+traffic_rule_data : traffic_rule.private_road
+{
+	additional_rules[]: traffic_rule.private_area
+}
+
+traffic_rule_data : traffic_rule.speed_bump2
+{
+	name: "[various] Speed bump (wheel physics only)"
+
+	additional_rules[]: traffic_rule.physics
+}
+
+traffic_rule_data : traffic_rule.no_escort
+{
+	# kept for backward compatibility
+	str_params[]: "No longer needed, please remove."
+}
+
+traffic_rule_data : traffic_rule.border_truck
+{
+	# name: "[prefab] Border gate for trucks"
+
+	additional_rules[]: traffic_rule.trucks_only
+	additional_rules[]: traffic_rule.excl_nav
+}
+

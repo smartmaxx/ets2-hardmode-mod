@@ -1,0 +1,83 @@
+
+# Rail without overhead wires (diesel trains)
+traffic_lane_data : traffic_lane.rail.train
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train
+	traffic_rules[]: traffic_rule.limit_80
+}
+
+# Rail without overhead wires (diesel trains - cargo only)
+traffic_lane_data : traffic_lane.rail.train.cargo
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train_c
+	traffic_rules[]: traffic_rule.limit_80
+}
+
+# Rail without overhead wires (diesel trains - passenger only)
+traffic_lane_data : traffic_lane.rail.train.passenger
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train_p
+	traffic_rules[]: traffic_rule.limit_80
+}
+
+# Rail with overhead wires (diesel and electric trains)
+# NOTE: Map designers must ensure presence of overhead wires!
+traffic_lane_data : traffic_lane.rail.train.wire
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train
+	traffic_rules[]: traffic_rule.s_train_w
+}
+
+# Rail with overhead wires (diesel and electric trains - cargo only)
+# NOTE: Map designers must ensure presence of overhead wires!
+traffic_lane_data : traffic_lane.rail.train.cargo.wire
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train_c
+	traffic_rules[]: traffic_rule.s_train_w_c
+}
+
+# Rail with overhead wires (diesel and electric trains - passenger only)
+# NOTE: Map designers must ensure presence of overhead wires!
+traffic_lane_data : traffic_lane.rail.train.passenger.wire
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train_p
+	traffic_rules[]: traffic_rule.s_train_w_p
+}
+
+# High-speed rail (electric trains including high-speed ones)
+# NOTE: Map designers must ensure presence of overhead wires!
+traffic_lane_data : traffic_lane.rail.train.high_speed
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train_w
+}
+
+# Metro rail
+traffic_lane_data : traffic_lane.rail.train.metro
+{
+	speed_class: rail_train
+
+	traffic_rules[]: traffic_rule.rail_train
+	traffic_rules[]: traffic_rule.s_train_m
+}
+

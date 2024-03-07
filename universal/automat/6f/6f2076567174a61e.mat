@@ -1,0 +1,6 @@
+effect : "eut2.retroreflective.rfx" {
+	texture : "texture_base" {
+		source : "/model/sign/traffic/blkw/traffic_sign_blkw_me.tobj"
+		sampler : default
+	}
+}

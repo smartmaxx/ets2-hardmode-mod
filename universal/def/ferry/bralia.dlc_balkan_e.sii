@@ -1,0 +1,6 @@
+ferry_data: ferry.bralia
+{
+	ferry_name: "Braila"
+	ferry_name_localized: "@@bralia@@"
+	cutscene: rferry2
+}

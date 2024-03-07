@@ -1,0 +1,190 @@
+
+traffic_rule_data : traffic_rule.limit_end
+{
+	# name: "[sign] End of speed limit"
+
+	rule: "speed_limit"
+	num_params[]: 0
+}
+
+traffic_rule_data : traffic_rule.impl_reset
+{
+	# name: "Implicit speed limit reset"
+
+	rule: "speed_limit"
+	num_params[]: 0
+	num_params[]: 1
+	str_params[]: "implicit"
+}
+
+traffic_rule_data : traffic_rule.limit_5
+{
+	# name: "[speed] Speed limit 5"
+
+	rule: "speed_limit"
+	num_params[]: 20							# madman mod: 5
+}
+
+traffic_rule_data : traffic_rule.limit_8
+{
+	# name: "[speed] Speed limit 8"
+
+	rule: "speed_limit"
+	num_params[]: 20							# madman mod: 8
+}
+
+traffic_rule_data : traffic_rule.limit_10
+{
+	# name: "[speed] Speed limit 10"
+
+	rule: "speed_limit"
+	num_params[]: 20							# madman mod: 10
+}
+
+traffic_rule_data : traffic_rule.limit_15
+{
+	# name: "[speed] Speed limit 15"
+
+	rule: "speed_limit"
+	num_params[]: 20							# madman mod: 15
+}
+
+traffic_rule_data : traffic_rule.limit_20
+{
+	# name: "[speed] Speed limit 20"
+
+	rule: "speed_limit"
+	num_params[]: 30							# madman mod: 20
+}
+
+traffic_rule_data : traffic_rule.limit_30
+{
+	# name: "[speed] Speed limit 30"
+
+	rule: "speed_limit"
+	num_params[]: 40							# madman mod: 30
+}
+
+traffic_rule_data : traffic_rule.limit_40
+{
+	# name: "[speed] Speed limit 40"
+
+	rule: "speed_limit"
+	num_params[]: 50							# madman mod: 40
+}
+
+traffic_rule_data : traffic_rule.limit_50
+{
+	# name: "[speed] Speed limit 50"
+
+	rule: "speed_limit"
+	num_params[]: 50
+}
+
+traffic_rule_data : traffic_rule.limit_60
+{
+	# name: "[speed] Speed limit 60"
+
+	rule: "speed_limit"
+	num_params[]: 60
+}
+
+traffic_rule_data : traffic_rule.limit_60_t
+{
+	# name: "[speed] Speed limit 60 (trucks only)"
+
+	rule: "speed_limit"
+	num_params[]: 80							# madman mod: 60
+	str_params[]: "truck_all"
+}
+
+
+traffic_rule_data : traffic_rule.limit_70
+{
+	# name: "[speed] Speed limit 70"
+
+	rule: "speed_limit"
+	num_params[]: 70
+}
+
+traffic_rule_data : traffic_rule.limit_80
+{
+	# name: "[speed] Speed limit 80"
+
+	rule: "speed_limit"
+	num_params[]: 80
+}
+
+traffic_rule_data : traffic_rule.limit_90
+{
+	# name: "[speed] Speed limit 90"
+
+	rule: "speed_limit"
+	num_params[]: 90
+}
+
+traffic_rule_data : traffic_rule.limit_100
+{
+	# name: "[speed] Speed limit 100"
+
+	rule: "speed_limit"
+	num_params[]: 100
+}
+
+traffic_rule_data : traffic_rule.limit_110
+{
+	# name: "[speed] Speed limit 110"
+
+	rule: "speed_limit"
+	num_params[]: 110
+}
+
+traffic_rule_data : traffic_rule.limit_120
+{
+	# name: "[speed] Speed limit 120"
+
+	rule: "speed_limit"
+	num_params[]: 120
+}
+
+traffic_rule_data : traffic_rule.limit_130
+{
+	# name: "[speed] Speed limit 130"
+
+	rule: "speed_limit"
+	num_params[]: 130
+}
+
+traffic_rule_data : traffic_rule.limit_100_60
+{
+	# name: "[speed] Speed limit 100 (60 for trucks)"
+
+	rule: "speed_limit"
+	num_params[]: 100
+	num_params[]: 1		# 0 - include vehicle types (default), 1 - exclude vehicle types
+	str_params[]: "truck_all"
+
+	additional_rules[]: traffic_rule.limit_60_t
+}
+
+traffic_rule_data : traffic_rule.limit_80_60
+{
+	# name: "[speed] Speed limit 80 (60 for trucks)"
+
+	rule: "speed_limit"
+	num_params[]: 80
+	num_params[]: 1		# 0 - include vehicle types (default), 1 - exclude vehicle types
+	str_params[]: "truck_all"
+
+	additional_rules[]: traffic_rule.limit_60_t
+}
+
+traffic_rule_data : traffic_rule.speed_bump
+{
+	name: "[various] Speed bump (speed limit 20 + wheel physics)"
+	rule: "speed_limit"
+	num_params[]: 30							# madman mod: 20
+
+	additional_rules[]: traffic_rule.physics
+}
+

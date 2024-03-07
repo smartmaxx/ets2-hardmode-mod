@@ -1,0 +1,102 @@
+
+traffic_rule_data : traffic_rule.urban_area
+{
+	rule: "lane"
+	str_params[]: "urban_area"
+	str_params[]: "area"
+}
+
+traffic_rule_data : traffic_rule.urban_start
+{
+	rule: "lane"
+	str_params[]: "urban_area"
+	str_params[]: "start"
+}
+
+traffic_rule_data : traffic_rule.urban_end
+{
+	rule: "lane"
+	str_params[]: "urban_area"
+	str_params[]: "end"
+}
+
+traffic_rule_data : traffic_rule.motorway_st2
+{
+	# name: "[sign] Motorway start"
+
+	rule: "lane"
+	str_params[]: "motorway"
+	str_params[]: "start"
+}
+
+traffic_rule_data : traffic_rule.motorway_st
+{
+	# name: "[sign] Motorway start (cancel local limits)"
+
+	rule: "lane"
+	str_params[]: "motorway"
+	str_params[]: "start"
+
+	additional_rules[]: traffic_rule.limit_end
+}
+
+traffic_rule_data : traffic_rule.motorway_en2
+{
+	# name: "[sign] Motorway end"
+
+	rule: "lane"
+	str_params[]: "motorway"
+	str_params[]: "end"
+}
+
+traffic_rule_data : traffic_rule.motorway_end
+{
+	# name: "[sign] Motorway end (cancel local limits)"
+
+	rule: "lane"
+	str_params[]: "motorway"
+	str_params[]: "end"
+
+	additional_rules[]: traffic_rule.limit_end
+}
+
+traffic_rule_data : traffic_rule.expressw_st
+{
+	# name: "[sign] Expressway start (cancel local limits)"
+
+	rule: "lane"
+	str_params[]: "expressway"
+	str_params[]: "start"
+
+	additional_rules[]: traffic_rule.limit_end
+}
+
+traffic_rule_data : traffic_rule.expressw_st2
+{
+	# name: "[sign] Expressway start"
+
+	rule: "lane"
+	str_params[]: "expressway"
+	str_params[]: "start"
+}
+
+traffic_rule_data : traffic_rule.expressw_end
+{
+	# name: "[sign] Expressway end (cancel local limits)"
+
+	rule: "lane"
+	str_params[]: "expressway"
+	str_params[]: "end"
+
+	additional_rules[]: traffic_rule.limit_end
+}
+
+traffic_rule_data : traffic_rule.expressw_en2
+{
+	# name: "[sign] Expressway end"
+
+	rule: "lane"
+	str_params[]: "expressway"
+	str_params[]: "end"
+}
+

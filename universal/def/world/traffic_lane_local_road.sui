@@ -1,0 +1,110 @@
+
+traffic_lane_data : traffic_lane.road.local.no_overtake
+{
+	speed_class: local_road
+
+	rank: 50
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_l
+	traffic_rules[]: traffic_rule.s_trl_r
+	traffic_rules[]: traffic_rule.s_truck_l
+	traffic_rules[]: traffic_rule.s_bus_l
+	traffic_rules[]: traffic_rule.s_police
+	traffic_rules[]: traffic_rule.s_cust_r
+}
+
+traffic_lane_data : traffic_lane.road.local.high_density
+{
+	speed_class: local_road
+
+	rank: 50
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_h
+	traffic_rules[]: traffic_rule.s_trl_r
+	traffic_rules[]: traffic_rule.s_trm_r
+	traffic_rules[]: traffic_rule.s_truck_h
+	traffic_rules[]: traffic_rule.s_bus_h
+	traffic_rules[]: traffic_rule.s_police
+}
+
+traffic_lane_data : traffic_lane.road.local
+{
+	speed_class: local_road
+
+	rank: 50
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_l
+	traffic_rules[]: traffic_rule.s_trl_r
+	traffic_rules[]: traffic_rule.s_truck_l
+	traffic_rules[]: traffic_rule.s_bus_l
+	traffic_rules[]: traffic_rule.s_police
+	traffic_rules[]: traffic_rule.overtake_alw	# Allow overtaking (including 'wrong way')
+	traffic_rules[]: traffic_rule.s_cust_r
+}
+
+traffic_lane_data : traffic_lane.road.local.dust
+{
+	speed_class: local_road
+
+	rank: 30
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_l
+	traffic_rules[]: traffic_rule.s_trl_r
+	traffic_rules[]: traffic_rule.s_truck_l
+	traffic_rules[]: traffic_rule.s_police
+	traffic_rules[]: traffic_rule.overtake_alw	# Allow overtaking (including 'wrong way')
+	traffic_rules[]: traffic_rule.uneven_road
+	traffic_rules[]: traffic_rule.s_cust_r
+}
+
+traffic_lane_data : traffic_lane.no_vehicles
+{
+	speed_class: local_road
+
+	traffic_rules[]: traffic_rule.private_area
+	traffic_rules[]: traffic_rule.s_cust_r
+}
+
+traffic_lane_data : traffic_lane.no_vehicles.dirt
+{
+	speed_class: local_road
+
+	traffic_rules[]: traffic_rule.private_area
+	traffic_rules[]: traffic_rule.uneven_road
+	traffic_rules[]: traffic_rule.s_cust_r
+}
+
+traffic_lane_data : traffic_lane.road.local.no_overtake.tram
+{
+	speed_class: local_road
+
+	rank: 50
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_l
+	traffic_rules[]: traffic_rule.s_truck_l
+	traffic_rules[]: traffic_rule.s_bus_l
+	traffic_rules[]: traffic_rule.s_police
+	traffic_rules[]: traffic_rule.road_tram
+
+}
+traffic_lane_data : traffic_lane.road.local.tram
+{
+	speed_class: local_road
+
+	rank: 50
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_l
+	traffic_rules[]: traffic_rule.s_truck_l
+	traffic_rules[]: traffic_rule.s_bus_l
+	traffic_rules[]: traffic_rule.s_police
+	traffic_rules[]: traffic_rule.road_tram
+	traffic_rules[]: traffic_rule.overtake_alw	# Allow overtaking (including 'wrong way')
+
+}
+

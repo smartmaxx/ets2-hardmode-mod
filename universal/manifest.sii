@@ -1,0 +1,15 @@
+SiiNunit
+{
+mod_package : .package_name {
+
+   package_version: "1.2"
+
+   author: "smart.maxx"
+   
+   category[]: "other"
+   
+   icon: "mod_icon.jpg"
+
+   description_file: "description.txt"
+}
+}

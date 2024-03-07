@@ -1,0 +1,6 @@
+
+traffic_lane_data : traffic_lane.slow_road
+{
+	speed_class: slow_road
+}
+

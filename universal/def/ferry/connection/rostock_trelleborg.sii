@@ -1,0 +1,9 @@
+SiiNunit
+{
+ferry_connection : conn.rostock.trelleborg {
+	price: 111 #def 668
+	time: 335
+	distance: 180
+}
+}
+

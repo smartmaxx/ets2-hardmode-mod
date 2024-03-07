@@ -1,0 +1,13 @@
+
+traffic_rule_data : traffic_rule.rblock_left
+{
+	rule: "road_block"
+	num_params[]: -1
+}
+
+traffic_rule_data : traffic_rule.rblock_right
+{
+	rule: "road_block"
+	num_params[]: 1
+}
+

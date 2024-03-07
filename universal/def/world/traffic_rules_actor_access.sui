@@ -1,0 +1,383 @@
+
+traffic_rule_data : traffic_rule.no_trailers
+{
+	# name: "[access] No trailers"
+	rule: "actor_access"
+	num_params[]: 0 	# 0 - disallow, 1 - allow
+	num_params[]: 0 	# 0 - inclusive, 1 - exclusive
+	num_params[]: 0 	# no change to vehicle access
+	num_params[]: 1 	# set trailer access
+	str_params[]: "road"
+}
+
+traffic_rule_data : traffic_rule.car_only
+{
+	name: "[access-exclusive] Cars only (no trailers)"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "car"
+
+	additional_rules[]: traffic_rule.no_trailers
+}
+
+traffic_rule_data : traffic_rule.no_car_comp
+{
+	# kept only for backward compatibility
+	rule: "actor_access"
+	num_params[]: 0 	# 0 - disallow, 1 - allow
+	num_params[]: 0 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "car_all"
+}
+
+traffic_rule_data : traffic_rule.no_trucks
+{
+	# kept for backward compatibility
+	# name: "[special] No trucks (backward compatibility only)"
+	rule: "actor_access"
+	num_params[]: 0 	# 0 - disallow, 1 - allow
+	num_params[]: 0 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "truck_semi"
+	str_params[]: "truck_heavy"
+}
+
+traffic_rule_data : traffic_rule.trucks_only
+{
+	name: "[access-exclusive] Trucks only (semi-trucks)"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "truck"
+	str_params[]: "truck_semi"
+	str_params[]: "truck_heavy"
+}
+
+traffic_rule_data : traffic_rule.no_bus_comp
+{
+	# kept only for backward compatibility
+	rule: "actor_access"
+	num_params[]: 0 	# 0 - disallow, 1 - allow
+	num_params[]: 0 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "bus_all"
+}
+
+traffic_rule_data : traffic_rule.buses_only
+{
+	name: "[access-exclusive] Buses only"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "bus"
+}
+
+traffic_rule_data : traffic_rule.tr_bus_only
+{
+	name: "[access-exclusive] Trucks and buses only"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "bus"
+	str_params[]: "truck"
+	str_params[]: "truck_semi"
+	str_params[]: "truck_heavy"
+}
+
+traffic_rule_data : traffic_rule.custom_only
+{
+	name: "[access-exclusive] Custom vehicles only"
+	rule: "actor_access"
+	num_params[]: 1 # 0 - disallow, 1 - allow
+	num_params[]: 1 # 0 - inclusive, 1 - exclusive
+	str_params[]: "custom_all"
+}
+
+traffic_rule_data : traffic_rule.bus_transit
+{
+	# name: "[access] Allow bus transit only"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "bus_custom"
+}
+
+traffic_rule_data : traffic_rule.allow_custom
+{
+	name: "[access] Custom vehicles area"
+	rule: "actor_access"
+	num_params[]: 1 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "custom_all"
+}
+
+traffic_rule_data : traffic_rule.tourist
+{
+	name: "[context][zone] Tourist zone (parks, small roads with viewpoints, ...)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "truck_all"
+	str_params[]: "fire"
+	str_params[]: "medical"
+
+	#additional_rules[]: traffic_rule.s_trl_t
+	additional_rules[]: traffic_rule.s_bus_h
+}
+
+traffic_rule_data : traffic_rule.resident
+{
+	name: "[context][zone] Residential zone (housing areas with small roads)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "truck_all"
+	str_params[]: "bus_all"
+	str_params[]: "fire"
+	str_params[]: "medical"
+}
+
+traffic_rule_data : traffic_rule.commerce_s
+{
+	name: "[context][zone] Commercial zone - small (car parks at shops, offices,...)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "truck_all"
+	str_params[]: "bus_all"
+	str_params[]: "fire"
+	str_params[]: "medical"
+	str_params[]: "police"
+}
+
+traffic_rule_data : traffic_rule.commerce_l
+{
+	name: "[context][zone] Commercial zone - large (city center, airport,...)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "truck_medium"
+	str_params[]: "truck_heavy"
+	str_params[]: "truck"
+	str_params[]: "truck_long"
+}
+
+traffic_rule_data : traffic_rule.ind_area
+{
+	name: "[context][zone] Industrial zone (logistics)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "car_all"
+	str_params[]: "bus_all"
+	str_params[]: "truck_light"
+	str_params[]: "truck_long"
+	str_params[]: "fire"
+	str_params[]: "medical"
+
+	additional_rules[]: traffic_rule.s_truck_d
+}
+
+traffic_rule_data : traffic_rule.rest_area
+{
+	name: "[context] Rest area (parking only)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "car_trailer"
+	str_params[]: "bus_all"
+	str_params[]: "truck_light"
+	str_params[]: "truck_medium"
+	str_params[]: "truck_heavy"
+	str_params[]: "truck_long"
+	str_params[]: "fire"
+	str_params[]: "medical"
+	str_params[]: "police"
+
+	additional_rules[]: traffic_rule.no_pl_limit
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.limit_30
+}
+
+traffic_rule_data : traffic_rule.gas_area
+{
+	name: "[context] Gas station area"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "car_trailer"
+	str_params[]: "truck_light"
+	str_params[]: "truck_medium"
+	str_params[]: "truck_heavy"
+	str_params[]: "truck_long"
+	str_params[]: "fire"
+	str_params[]: "medical"
+	str_params[]: "police"
+
+	additional_rules[]: traffic_rule.no_pl_limit
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.limit_30
+}
+
+traffic_rule_data : traffic_rule.weigh_area
+{
+	name: "[context] Weigh station area"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "car_all"
+	str_params[]: "bus_all"
+	str_params[]: "truck_light"
+	str_params[]: "truck_medium"
+	str_params[]: "truck_heavy"
+	str_params[]: "fire"
+	str_params[]: "medical"
+	str_params[]: "police"
+
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.no_pl_limit
+	additional_rules[]: traffic_rule.limit_30
+}
+
+traffic_rule_data : traffic_rule.w_closed
+{
+	# closed weigh station - no vehicle access
+	rule: "actor_access"
+	num_params[]: 0 	# 0 - disallow, 1 - allow
+	num_params[]: 0 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "road"
+}
+
+traffic_rule_data : traffic_rule.company_area
+{
+	name: "[context] Company area (depot)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 2 # 0 - inclusive, 1 - exclusive, 2 - context-specific
+	str_params[]: "car_trailer"
+	str_params[]: "bus_all"
+	str_params[]: "truck_light"
+	str_params[]: "truck_medium"
+	str_params[]: "truck_long"
+	str_params[]: "fire"
+	str_params[]: "medical"
+	str_params[]: "police"
+
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.no_pl_limit
+	additional_rules[]: traffic_rule.limit_30
+
+	additional_rules[]: traffic_rule.s_train_dp
+	additional_rules[]: traffic_rule.s_truck_c_d
+	additional_rules[]: traffic_rule.s_truck_d
+	additional_rules[]: traffic_rule.s_car_d
+}
+
+traffic_rule_data : traffic_rule.road
+{
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 0 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "road"
+}
+
+traffic_rule_data : traffic_rule.rail_train
+{
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	num_params[]: 1 	# set vehicle access
+	num_params[]: 1 	# set trailer access
+	num_params[]: 0 	# disable player access
+	str_params[]: "rail_train"
+
+	additional_rules[]: traffic_rule.lights_on
+	additional_rules[]: traffic_rule.private_area
+}
+
+traffic_rule_data : traffic_rule.rail_tram
+{
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	num_params[]: 1 	# set vehicle access
+	num_params[]: 1 	# set trailer access
+	num_params[]: 0 	# disable player access
+	str_params[]: "rail_tram"
+
+	additional_rules[]: traffic_rule.lights_on
+	additional_rules[]: traffic_rule.private_area
+}
+
+traffic_rule_data : traffic_rule.road_tram
+{
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 0 	# 0 - inclusive, 1 - exclusive
+	str_params[]: "rail_tram"
+
+	additional_rules[]: traffic_rule.s_tram
+}
+
+traffic_rule_data : traffic_rule.es_fr_only
+{
+	name: "[access-escort] Front escort vehicles only"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	num_params[]: 1 	# set vehicle access
+	num_params[]: 0 	# no change to trailer access
+	str_params[]: "escort_front"
+
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.excl_nav
+}
+
+traffic_rule_data : traffic_rule.es_ba_only
+{
+	name: "[access-escort] Back escort vehicles only"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	num_params[]: 1 	# set vehicle access
+	num_params[]: 0 	# no change to trailer access
+	str_params[]: "escort_back"
+
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.excl_nav
+}
+
+traffic_rule_data : traffic_rule.escort_only
+{
+	name: "[access-escort] Escort vehicles only"
+	rule: "actor_access"
+	num_params[]: 1 	# 0 - disallow, 1 - allow
+	num_params[]: 1 	# 0 - inclusive, 1 - exclusive
+	num_params[]: 1 	# set vehicle access
+	num_params[]: 0 	# no change to trailer access
+	str_params[]: "escort_all"
+
+	additional_rules[]: traffic_rule.private_area
+	additional_rules[]: traffic_rule.excl_nav
+}
+
+traffic_rule_data : traffic_rule.toll_small
+{
+	# name: "[prefab] Toll gate for small vehicles (cars)"
+
+	rule: "actor_access"
+	num_params[]: 0 # 0 - disallow, 1 - allow
+	num_params[]: 0 # 0 - inclusive, 1 - exclusive
+	str_params[]: "truck_all"
+	str_params[]: "bus_all"
+	str_params[]: "fire"
+	str_params[]: "medical"
+}
+

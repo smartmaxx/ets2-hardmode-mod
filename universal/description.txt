@@ -1,0 +1,10 @@
+﻿[orange] HardMode
+
+
+[normal] This package contains all files of the Another Hardcore Economy Mod Expansion.
+
+[red] Compatible with base game and all map DLC expansions.
+
+[normal]Original author: Kapitan Marchewa
+
+Included: Increased Road Speed Limits https://steamcommunity.com/sharedfiles/filedetails/?id=2042311982

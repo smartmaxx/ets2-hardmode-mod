@@ -1,0 +1,65 @@
+
+traffic_lane_data : traffic_lane.road.expressway
+{
+	speed_class: expressway
+
+	rank: 150
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_h
+	traffic_rules[]: traffic_rule.s_trl_r
+	traffic_rules[]: traffic_rule.s_trm_r
+	traffic_rules[]: traffic_rule.s_truck_h
+	traffic_rules[]: traffic_rule.s_bus_h
+	traffic_rules[]: traffic_rule.s_police
+}
+
+traffic_lane_data : traffic_lane.road.expressway.tram
+{
+	speed_class: expressway
+
+	rank: 150
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_h
+	traffic_rules[]: traffic_rule.s_police
+	traffic_rules[]: traffic_rule.road_tram
+}
+
+traffic_lane_data : traffic_lane.road.expressway.full_in_out
+{
+	speed_class: expressway
+
+	rank: 130
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_h
+	traffic_rules[]: traffic_rule.s_truck_h
+	traffic_rules[]: traffic_rule.s_bus_h
+	traffic_rules[]: traffic_rule.s_police
+
+	traffic_rules[]: traffic_rule.no_chng_out
+	traffic_rules[]: traffic_rule.no_chng_in
+}
+
+traffic_lane_data : traffic_lane.road.expressway.low_density
+{
+	speed_class: expressway
+
+	rank: 100
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.s_car_l
+}
+
+traffic_lane_data : traffic_lane.road.expressway.bus_transit
+{
+	speed_class: expressway
+
+	rank: 100
+
+	traffic_rules[]: traffic_rule.road
+	traffic_rules[]: traffic_rule.bus_transit
+	traffic_rules[]: traffic_rule.s_bus_t
+}
+

@@ -1,0 +1,52 @@
+SiiNunit
+{
+sign_board_template : _nameless.473.cf50 {
+ board_name: "lt sign speed limit 90"
+ width: 0.4
+ height: 0.4
+ items: 2
+ items[0]: _nameless.486.7180
+ items[1]: _nameless._.mad_img
+ dynamic_attributes: 0
+}
+
+sign_template_text : _nameless.486.7180 {
+ text: 90
+ font_face: "/font/sign/ru_lt.font"
+ font_size: &3ec28f5c
+ text_halign: center
+ text_valign: center
+ font_color: 0
+ font_opacity: 1
+ line_spacing: &3e4ccccd
+ letter_spacing: &bca3d70a
+ id: 3807772670
+ area_name: ""
+ area_idx: nil
+ coords_l: 0
+ coords_r: 0.4
+ coords_t: 0.4
+ coords_b: 0
+ z_order: 1
+}
+
+sign_template_image : _nameless._.mad_img {
+ atlas_path: "/def/sign/atlas/mad_rusty.sii"
+ image_idx: 2
+ color: nil
+ opacity: 1
+ hflip: false
+ vflip: false
+ image_overridable: false
+ id: 2316194322
+ area_name: ""
+ area_idx: nil
+ coords_l: 0
+ coords_r: 0.4
+ coords_t: 0.4
+ coords_b: 0
+ z_order: 2
+ tag: ""
+}
+
+}

@@ -1,0 +1,72 @@
+
+traffic_rule_data : traffic_rule.give_way
+{
+	# name: "[sign] Give way (crossroad - slow down)"
+
+	# The rule is not used as it was originally meant to (for non-hw roads only).
+	# Disabling until solution is found
+	#rule: "stop"
+	#num_params[]: 0.0	# block time after reaching 'stop speed'
+	#num_params[]: 8.0	# block while speed is higher than this [m/s]
+
+	additional_rules[]: traffic_rule.minor_road
+}
+
+traffic_rule_data : traffic_rule.stop
+{
+	# Use this rule for both horizontal (road text) and vertical (traffic signs) 'stop' traffic rules
+	# The actual vehicle stop position is moved to a nearby intersection or 'traffic_rule.cross_line' (if any)
+
+	# name: "[sign] Stop"
+
+	rule: "stop"
+	num_params[]: 0.5	# block time after reaching 'stop speed'
+	num_params[]: 0.5	# block while speed is higher than this [m/s]
+
+	additional_rules[]: traffic_rule.minor_road
+}
+
+traffic_rule_data : traffic_rule.speed_bump_s
+{
+	name: "[various] Speed bump (slowdown + wheel physics)"
+
+	rule: "stop"
+	num_params[]: 1.5	# block time after reaching 'stop speed'
+	num_params[]: 7.0	# block while speed is higher than this [m/s]
+	num_params[]: 1
+
+	additional_rules[]: traffic_rule.physics
+}
+
+traffic_rule_data : traffic_rule.train_stop_v
+{
+	name: "[various] Train stop very short"
+
+	rule: "stop"
+	num_params[]: 4.0
+}
+
+traffic_rule_data : traffic_rule.train_stop_s
+{
+	name: "[various] Train stop short"
+
+	rule: "stop"
+	num_params[]: 10.0
+}
+
+traffic_rule_data : traffic_rule.train_stop_l
+{
+	name: "[various] Train stop long"
+
+	rule: "stop"
+	num_params[]: 60.0
+}
+
+traffic_rule_data : traffic_rule.train_stop_f
+{
+	name: "[various] Train stop forever"
+
+	rule: "stop"
+	num_params[]: 1000000.0
+}
+

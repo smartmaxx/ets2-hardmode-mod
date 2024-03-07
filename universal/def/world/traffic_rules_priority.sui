@@ -1,0 +1,19 @@
+
+traffic_rule_data : traffic_rule.major_road
+{
+	# name: "[sign] Priority road"
+
+	rule: "priority"
+	num_params[]: -1
+	num_params[]: 0
+	num_params[]: 2
+}
+
+traffic_rule_data : traffic_rule.minor_road
+{
+	rule: "priority"
+	num_params[]: -1
+	num_params[]: 0
+	num_params[]: 1
+}
+
